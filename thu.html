@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <style>
+        .main-timeline {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .main-timeline:before,
+        .main-timeline:after {
+            content: "";
+            display: block;
+            width: 100%;
+            clear: both;
+        }
+        
+        .main-timeline:before {
+            content: "";
+            width: 3px;
+            height: 100%;
+            background: #d6d5d5;
+            position: absolute;
+            top: 30px;
+            left: 50%;
+        }
+        
+        .main-timeline .timeline {
+            width: 50%;
+            float: left;
+            padding-right: 30px;
+            position: relative;
+        }
+        
+        .main-timeline .timeline-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #fff;
+            border: 3px solid #fe6847;
+            position: absolute;
+            top: 5.5%;
+            right: -17.5px;
+        }
+        
+        .main-timeline .year {
+            display: block;
+            padding: 10px;
+            margin: 0;
+            font-size: 30px;
+            color: #fff;
+            border-radius: 0 50px 50px 0;
+            background: #fe6847;
+            text-align: center;
+            position: relative;
+        }
+        
+        .main-timeline .year:before {
+            content: "";
+            border-top: 35px solid #f59c8b;
+            border-left: 35px solid transparent;
+            position: absolute;
+            bottom: -35px;
+            left: 0;
+        }
+        
+        .main-timeline .timeline-content {
+            padding: 30px 20px;
+            margin: 0 45px 0 35px;
+            background: #f2f2f2;
+        }
+        
+        .main-timeline .title {
+            font-size: 19px;
+            font-weight: bold;
+            color: #504f54;
+            margin: 0 0 10px 0;
+        }
+        
+        .main-timeline .description {
+            font-size: 14px;
+            color: #7d7b7b;
+            margin: 0;
+        }
+        
+        .main-timeline .timeline:nth-child(2n) {
+            padding: 0 0 0 30px;
+        }
+        
+        .main-timeline .timeline:nth-child(2n) .timeline-icon {
+            right: auto;
+            left: -14.5px;
+        }
+        
+        .main-timeline .timeline:nth-child(2n) .year {
+            border-radius: 50px 0 0 50px;
+        }
+        
+        .main-timeline .timeline:nth-child(2n) .year:before {
+            border-left: none;
+            border-right: 35px solid transparent;
+            left: auto;
+            right: 0;
+        }
+        
+        .main-timeline .timeline:nth-child(2n) .timeline-content {
+            text-align: right;
+            margin: 0 35px 0 45px;
+        }
+        
+        .main-timeline .timeline:nth-child(2) {
+            margin-top: 170px;
+        }
+        
+        .main-timeline .timeline:nth-child(odd) {
+            margin: -175px 0 0 0;
+        }
+        
+        .main-timeline .timeline:nth-child(even) {
+            margin-bottom: 80px;
+        }
+        
+        .main-timeline .timeline:first-child,
+        .main-timeline .timeline:last-child:nth-child(even) {
+            margin: 0;
+        }
+        
+        .main-timeline .timeline:nth-child(2n) .timeline-icon {
+            border-color: #7eda99;
+        }
+        
+        .main-timeline .timeline:nth-child(2n) .year {
+            background: #7eda99;
+        }
+        
+        .main-timeline .timeline:nth-child(2n) .year:before {
+            border-top-color: #92efad;
+        }
+        
+        .main-timeline .timeline:nth-child(3n) .timeline-icon {
+            border-color: #8a5ec1;
+        }
+        
+        .main-timeline .timeline:nth-child(3n) .year {
+            background: #8a5ec1;
+        }
+        
+        .main-timeline .timeline:nth-child(3n) .year:before {
+            border-top-color: #a381cf;
+        }
+        
+        .main-timeline .timeline:nth-child(4n) .timeline-icon {
+            border-color: #f98d9c;
+        }
+        
+        .main-timeline .timeline:nth-child(4n) .year {
+            background: #f98d9c;
+        }
+        
+        .main-timeline .timeline:nth-child(4n) .year:before {
+            border-top-color: #f2aab3;
+        }
+        
+        @media only screen and (max-width: 767px) {
+            .main-timeline {
+                overflow: visible;
+            }
+            .main-timeline:before {
+                top: 0;
+                left: 0;
+            }
+            .main-timeline .timeline:nth-child(2),
+            .main-timeline .timeline:nth-child(odd),
+            .main-timeline .timeline:nth-child(even) {
+                margin: 0;
+            }
+            .main-timeline .timeline {
+                width: 100%;
+                float: none;
+                padding: 0 0 0 30px;
+                margin-bottom: 20px !important;
+            }
+            .main-timeline .timeline:last-child {
+                margin: 0 !important;
+            }
+            .main-timeline .timeline-icon {
+                right: auto;
+                left: -14.5px;
+            }
+            .main-timeline .year {
+                border-radius: 50px 0 0 50px;
+            }
+            .main-timeline .year:before {
+                border-left: none;
+                border-right: 35px solid transparent;
+                left: auto;
+                right: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="main-timeline">
+                    <div class="timeline">
+                        <span class="timeline-icon"></span>
+                        <span class="year">1</span>
+                        <div class="timeline-content">
+                            <h3 class="title">Liên hệ</h3>
+                            <p class="description">
+                                Khách hàng liên hệ với chúng tôi thông qua các thông tin liên hệ.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline">
+                        <span class="timeline-icon"></span>
+                        <span class="year">2</span>
+                        <div class="timeline-content">
+                            <h3 class="title">Gửi yêu cầu</h3>
+                            <p class="description">
+                                Khách hàng gửi yêu cầu.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline">
+                        <span class="timeline-icon"></span>
+                        <span class="year">3</span>
+                        <div class="timeline-content">
+                            <h3 class="title">Phân tích và báo giá</h3>
+                            <p class="description">
+                                Tiến hành phân tích dự án và báo giá.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline">
+                        <span class="timeline-icon"></span>
+                        <span class="year">4</span>
+                        <div class="timeline-content">
+                            <h3 class="title">Đặt cọc 10%</h3>
+                            <p class="description">
+                                Khách hàng đặt cọc 10% tổng chi phí để xây dựng dự án.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline">
+                        <span class="timeline-icon"></span>
+                        <span class="year">5</span>
+                        <div class="timeline-content">
+                            <h3 class="title">Thanh toán 60%</h3>
+                            <p class="description">
+                                Khách hàng tiếp tục thanh toán 60% tổng chi phí khi đã đồng ý về dự án.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline">
+                        <span class="timeline-icon"></span>
+                        <span class="year">6</span>
+                        <div class="timeline-content">
+                            <h3 class="title"> Tiến hành dự án</h3>
+                            <p class="description">
+                                Tiến hành dự án
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline">
+                        <span class="timeline-icon"></span>
+                        <span class="year">7</span>
+                        <div class="timeline-content">
+                            <h3 class="title">Thanh toán 30%</h3>
+                            <p class="description">
+                                Bàn giao dự án và thu 30% tổng chi phí còn lại sau khi chạy thử dự án 10-15 ngày
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
